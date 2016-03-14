@@ -15,14 +15,14 @@
             select: null
         });
 
-    Controller.createField = function (key, name, type, meta, done) {
+    Controller.createField = function (key, name, type, img, meta, done) {
         if (!Types[type]) {
             return done(new Error(util.format('%s is not supported', type)));
         }
 
         logger.log('verbose', 'Create field', key, name, type, meta);
 
-        database.createField(key, name, type, filterMeta(meta, type, name), done);
+        database.createField(key, name, type, img, filterMeta(meta, type, name), done);
     };
 
     Controller.getCustomFields = function (uid, done) {
@@ -50,11 +50,13 @@
                         if (field.type == Types.select) {
                             customFields.push({
                                 name : field.name,
+                                img : field.img,
                                 value: getTextById(value, field.options)
                             });
                         } else {
                             customFields.push({
                                 name : field.name,
+                                img : field.img,
                                 value: value
                             });
                         }

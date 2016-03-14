@@ -23,7 +23,7 @@
     };
 
     Module.createField = function (socket, payload, callback) {
-        controller.createField(payload.fieldKey, payload.fieldName, payload.fieldType, payload.fieldMeta || {}, callback);
+        controller.createField(payload.fieldKey, payload.fieldName, payload.fieldType, payload.fieldImg, payload.fieldMeta || {}, callback);
     };
 
     Module.getFields = function (socket, payload, callback) {

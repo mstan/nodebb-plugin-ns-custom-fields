@@ -47,7 +47,8 @@ var FieldsList = React.createClass({
                     <div className="custom-fields-list">
                         <div className="row custom-fields-list-header">
                             <div className="col-lg-1">#</div>
-                            <div className="col-lg-3">Key</div>
+                            <div className="col-lg-2">Key</div>
+                            <div className="col-lg-2">Icon</div>
                             <div className="col-lg-3">Type</div>
                             <div className="col-lg-5">Name</div>
                         </div>

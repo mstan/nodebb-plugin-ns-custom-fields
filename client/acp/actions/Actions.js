@@ -10,12 +10,13 @@ module.exports = {
         });
     },
 
-    createField: function (key, name, type, meta) {
+    createField: function (key, name, type, img, meta) {
         AppDispatcher.dispatch({
             actionType: Constants.EVENT_CREATE_FIELD,
             key       : key,
             name      : name,
             type      : type,
+            img       : img,
             meta      : meta
         });
     },

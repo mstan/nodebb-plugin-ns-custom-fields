@@ -1,5 +1,11 @@
 # Changelog
 
+## v.3.0.1-gm 3/13/16
+
+- Modify to allow for accepting of "img" field via URL.
+- Add hook to custom_profile_fields to output custom user information displayed by image with title of user's ID
+- Add icon to profile identifier
+
 ## v3.0.1 - 12/9/2015
 
 - Fix issue with predefined middleware in NodeBB for access rights

@@ -24,7 +24,11 @@
     {
       "hook": "static:app.load",
       "method": "hooks.statics.load"
-    }
+    },
+    {
+      "hook": "filter:posts.custom_profile_info", 
+      "method": "hooks.filters.addCustomFieldsToPost"
+    }    
   ],
   "less": [
     "style/acp.less",

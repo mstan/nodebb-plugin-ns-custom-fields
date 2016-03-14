@@ -9,12 +9,13 @@
         namespace    = constants.NAMESPACE,
         logger       = require('./logger');
 
-    var createField = function (id, key, name, type) {
+    var createField = function (id, key, name, type, img) {
         return {
             fid : id,
             key : key,
             name: name,
-            type: type
+            type: type,
+            img : img
         };
     };
 
@@ -22,7 +23,7 @@
         return 'user:' + uid + ':' + namespace;
     };
 
-    Database.createField = function (key, name, type, meta, done) {
+    Database.createField = function (key, name, type, img, meta, done) {
         //Secure key
         var notSecureFields = ['_key', '_id'];
         var index = notSecureFields.indexOf(key);
@@ -44,7 +45,7 @@
                     next(null, id);
                 });
             }, function (id, next) {
-                var fieldModel = objectAssign(createField(id, key, name, type), meta);
+                var fieldModel = objectAssign(createField(id, key, name, type, img), meta);
                 db.setObject(namespace + ':' + id, fieldModel, function (error) {
                     if (error) {
                         return next(error);

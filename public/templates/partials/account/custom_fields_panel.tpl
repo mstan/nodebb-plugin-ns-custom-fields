@@ -4,6 +4,9 @@
         <div class="row">
             <div class="col-md-12">
                 <!-- BEGIN customFields -->
+
+                <img src="{customFields.img}" alt="{customFields.name}"  height="20" width="20" />
+
                 <span class="account-bio-label">{customFields.name}</span>
                 <span class="account-bio-value">{customFields.value}</span>
                 <!-- END customFields -->

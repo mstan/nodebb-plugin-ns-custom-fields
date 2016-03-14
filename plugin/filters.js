@@ -6,6 +6,7 @@
         database   = require('./database'),
         settings   = require('./settings'),
         constants  = require('./constants');
+    var logger     = require('./logger');
 
     var faIcon = 'fa-plus-square';
 
@@ -72,12 +73,14 @@
      * @param callback {function}
      */
     Filter.topic = function (topicData, callback) {
+
         if (!settings.isFilterTopics()) {
             return callback(null, topicData);
         }
 
         async.map(topicData.posts, function (post, next) {
             getCustomFields(post.user.uid, function (error, customFields) {
+
                 if (error) {
                     return next(error);
                 }
@@ -85,6 +88,7 @@
                 next(null, post);
             });
         }, function (error, results) {
+
             if (error) {
                 return callback(error);
             }
@@ -103,6 +107,33 @@
         });
 
         callback(null, links);
+    };
+
+    Filter.addCustomFieldsToPost = function (profileInfo, callback) {
+
+        controller.getFilledFields(profileInfo.uid, function (error,customFields) {
+            logger.log('info', customFields);
+
+            customFields.forEach( function (customField) {
+
+                var iconIdentifier = '<img src="' + customField.img + '" title="' + customField.value + '" width="15" height="15" />'
+
+                profileInfo.profile.push({
+                    content: '<span>' + iconIdentifier + '</span>'
+                });
+            });
+
+
+        });
+
+        //find out what the user's ID is
+
+        //Call the getCustomFields function for who our user is. 
+
+        //Build and pass back the items like we do with steam-int
+
+
+        callback(null, profileInfo);
     };
 
 })(module.exports);

@@ -11,7 +11,7 @@ var FieldItem = React.createClass({
     },
 
     render: function () {
-        var arrowPrevious, arrowNext, typeContent, Type = FieldsStore.getTypeEnum();
+        var arrowPrevious, arrowNext, iconIdentifier, typeContent, Type = FieldsStore.getTypeEnum();
         if (this.props.next) {
             arrowNext = <i className="fa fa-angle-down custom-fields-item-controls"
                            onClick={this._changeOrder.bind(this, 1)}></i>;
@@ -30,10 +30,15 @@ var FieldItem = React.createClass({
                 break;
         }
 
+        if (this.props.field.img) {
+            iconIdentifier =  <img src= {`${this.props.field.img}`} width="20" height="20" />;
+        }
+
         return (
             <div className="row custom-fields-item">
                 <div className="col-lg-1">{arrowPrevious}{arrowNext}</div>
-                <div className="col-lg-3">{this.props.field.key}</div>
+                <div className="col-lg-2">{this.props.field.key}</div>
+                <div className="col-lg-2"> {iconIdentifier}  </div>
                 <div className="col-lg-3">{typeContent}</div>
                 <div className="col-lg-3 cf-field-name">{this.props.field.name}</div>
                 <div className="col-lg-2">

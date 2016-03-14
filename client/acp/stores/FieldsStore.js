@@ -110,6 +110,7 @@ AppDispatcher.register(function (action) {
                 fieldKey : action.key,
                 fieldName: action.name,
                 fieldType: action.type,
+                fieldImg : action.img, 
                 fieldMeta: action.meta
             }, function (error, field) {
                 _fields.push(field);

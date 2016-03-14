@@ -13,6 +13,7 @@ var FieldInput = React.createClass({
 
     propTypes: {
         fieldKey : ReactPropTypes.string,
+        fieldImg : ReactPropTypes.string,
         fieldName: ReactPropTypes.string
     },
 
@@ -20,6 +21,7 @@ var FieldInput = React.createClass({
         return {
             fieldKey  : this.props.fieldKey || '',
             fieldName : this.props.fieldName || '',
+            fieldImg  : this.props.fieldImg || '',
             fieldType : FieldsStore.getDefaultFieldType(),
             fieldMeta : {},
             fieldValid: false
@@ -72,6 +74,18 @@ var FieldInput = React.createClass({
                                     value={this.state.value}/>
                             </div>
                         </div>
+                        <div className="col-md-12">
+                            <div className="form-group">
+                                <label htmlFor="labelName">Icon</label>
+                                <input
+                                    id="labelImg"
+                                    type="text"
+                                    className="form-control"
+                                    valueLink={this.linkState('fieldImg')}
+                                    placeholder="Icon URL (Optional)"
+                                    value={this.state.value}/>
+                            </div>
+                        </div>                        
                     </div>
 
                     <div className="form-group">
@@ -117,6 +131,7 @@ var FieldInput = React.createClass({
             this.state.fieldKey.toLowerCase(),
             this.state.fieldName,
             this.state.fieldType,
+            this.state.fieldImg,
             this.state.fieldMeta
         );
         this.replaceState(this.getInitialState());
