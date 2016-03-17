@@ -49,7 +49,6 @@ or
 - Use Custom Fields in extended Tooltip for @mentions
 - Use Sockets in ACP
 - Add Sections to group custom fields
-- Add Icons for custom field
 - Add Parser handler to create additional formatting (Ex: by having Steam Id, create full url to the profile)
 - Add Tests (Mocha/Tape)
 - Add utility method: clear unused fields
