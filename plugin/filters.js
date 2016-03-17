@@ -112,7 +112,6 @@
     Filter.addCustomFieldsToPost = function (profileInfo, callback) {
 
         controller.getFilledFields(profileInfo.uid, function (error,customFields) {
-            logger.log('info', customFields);
 
             customFields.forEach( function (customField) {
 
